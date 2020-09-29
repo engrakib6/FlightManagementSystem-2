@@ -1,17 +1,11 @@
 package com.dxctraining.flight.controllers;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import com.dxctraining.flight.dto.CreateFlightRequest;
 import com.dxctraining.flight.dto.FlightDto;
 import com.dxctraining.flight.entities.Flight;
@@ -47,5 +41,20 @@ public class FlightController {
 		FlightDto response = util.flightDto(flight);
 		return response;
 	}
-
+	@GetMapping(value = "/list")
+	@ResponseStatus(HttpStatus.OK)
+    private List<Flight> viewAllFlights(){
+        return service.viewAllFlights();
+    }
+	  @PutMapping(value = "/modify/{flightNum}")
+	  @ResponseStatus(HttpStatus.OK)
+	    public Flight modifyFlight(@PathVariable(value = "flightNum")BigInteger flightNum){
+	    	Flight flight = service.viewByFlightNum(flightNum);
+	    	
+	    	return flight;
+	    }
+	  @DeleteMapping(value = "/delete/{flightNum}")
+	    private void delete(@PathVariable(value = "flightNum")BigInteger flightNum){
+	    	service.delete(flightNum);
+	    }
 }

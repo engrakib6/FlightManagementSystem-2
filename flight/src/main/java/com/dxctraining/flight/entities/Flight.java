@@ -73,4 +73,5 @@ public class Flight {
 		boolean equalResult=this.flightNum.equals(that.flightNum);
 		return equalResult;
 	}
+	
 }
