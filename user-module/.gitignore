@@ -5,7 +5,9 @@ target/
 !**/src/test/**/target/
 
 bin
-mvn
+mvnw
+mvnw.cmd
+.mvn/wrapper
 ### STS ###
 .apt_generated
 .classpath
