@@ -2,9 +2,13 @@ package com.dxctraining.usermodule.dao;
 
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+
 import com.dxctraining.usermodule.entities.User;
 import com.dxctraining.usermodule.exceptions.UserNotFoundException;
 
@@ -46,7 +50,7 @@ public class UserDaoImpl implements IUserDao {
 
 	@Override
 	public void deleteUser(Integer userId) {
-		User user=findUserById(userId);
+		User user =findUserById(userId);
 		entityManager.remove(user);
 	}
 

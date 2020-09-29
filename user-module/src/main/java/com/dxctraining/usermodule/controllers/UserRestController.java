@@ -68,6 +68,6 @@ public class UserRestController {
 
 	@DeleteMapping("/delete/{id}")
 	public void DeleteUserById(@PathVariable("id") Integer userId) {
-		service.deleteUser(userId);
+		service.deleteUser(userId);		
 	}
 }
