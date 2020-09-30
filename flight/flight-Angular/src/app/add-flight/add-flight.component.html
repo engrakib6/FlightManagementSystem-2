@@ -1,0 +1,47 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+<p>ADD FLIGHT</p>
+
+<form [formGroup]="flightForm" (ngSubmit)="flightForm.valid && addFlight()">
+
+    <div class="form-group">
+        <label>Flight Model</label>
+        <input type="text" formControlName="flightModel" ngModel class="form-control">
+    </div>
+
+
+
+<div *ngIf="flightModelCtrl.errors != null && flightModelCtrl.errors.required" class="alert alert-danger">
+    <div [hidden]='!flightModelCtrl.errors.required'> FlightModel is required </div>
+
+</div>
+
+<div class="form-group">
+        <label>Carrier Name</label>
+        <input type="text" formControlName="carrierName" ngModel class="form-control">
+    </div>
+
+<div *ngIf="carrierNameCtrl.errors != null &&carrierNameCtrl.errors.required" class="alert alert-danger">
+    <div [hidden]='!carrierNameCtrl.errors.required'> CarrierName is required </div>
+</div>
+
+<div class="form-group">
+    <label>SeatCapacity</label>
+    <input type="number" formControlName="seatCapacity" ngModel class="form-control">
+</div>
+<div *ngIf="seatCapacityCtrl.errors !=null &&seatCapacityCtrl.errors.required" class="alert alert-danger">
+    <div [hidden]='!seatCapacityNameCtrl.errors.required'> Seat Capacity is required </div>
+    </div>
+<input type="submit" formControlName="Submit">
+</form>
+<br>
+<div *ngIf="flight!=undefined">
+<h2>Add Flight</h2>
+{{flight.flightNum}}
+{{flight.flightModel}}
+{{flight.carrierName}}
+{{flight.seatCapacity}}
+</div>
