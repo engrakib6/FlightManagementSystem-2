@@ -1,0 +1,58 @@
+<p>add-airport works!</p>
+<!--
+  ngSubmit is the event and we are hooking our addUser method to
+   this event so that on submit addUser method will get executed
+   
+   myform is a template variable, it contains formgroup 
+   and we are passing this to our method so as to process it at code(ts) side  
+-->
+<form #myform=ngForm (ngSubmit)="myform.valid &&  addAirport(myform)">
+    
+<div class="form-group">
+        <label>name</label>
+        <!--
+            ngModel creates formcontrol at code side,
+             without mentioning ngModel, angular has no knowledge of this textfield -->
+        <input type="text" name="name" required minlength="7" ngModel #nameCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="nameCtrl.errors!=null && nameCtrl.errors.required" class="error">
+     name is required
+    </div>
+    
+    
+    <div *ngIf="nameCtrl.errors!=null && nameCtrl.errors.minlength" class="error">
+        minlength of name is 7
+       </div>
+    
+
+
+
+    <div class="form-group">
+        <label>location</label>
+        <!--
+            ngModel creates formcontrol at code side,
+             without mentioning ngModel, angular has no knowledge of this textfield -->
+        <input type="text" name="location" required minlength="3" ngModel #locationCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="locationCtrl.errors!=null && locationCtrl.errors.required" class="error">
+     location is required
+    </div>
+    
+    
+    <div *ngIf="locationCtrl.errors!=null && locationCtrl.errors.minlength" class="error">
+        minlength of location is 3
+       </div>
+    
+    <input type="submit" value="Submit" class="btn btn-primary">    
+    </form>
+    <br>
+    
+    <div *ngIf="airport!==undefined">
+     <h3>Airport added</h3>   
+     {{airport.code}}
+    {{airport.name}}
+    {{airport.location}}
+   
+    </div>

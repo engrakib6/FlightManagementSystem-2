@@ -1,0 +1,29 @@
+<h3>airports List</h3>
+<table border="1">
+
+<tr>
+  <th>code</th>
+  <th>Name</th>
+ <th>location</th> 
+</tr>  
+<tr *ngFor="let airport of airports">
+    <td>
+    {{airport.code}}
+    </td>
+
+  <td>
+ {{airport.name }} 
+</td>
+
+<td>
+  {{airport.location}}
+
+</td>
+
+ <td>
+    <button (click)="removeAirport(airport.code)">Remove airport</button>
+  
+  </td>  
+
+  </tr>
+</table>

@@ -1,0 +1,21 @@
+<p>airport-details works!</p>
+<form #codeform=ngForm (ngSubmit)=findAirport(codeform) >
+
+    <div class="form-group">
+    <label>code</label>
+    <input type="text" name="airportcode"   ngModel class="form-control">
+  </div>
+    <input type="submit" value="Search" class="btn btn-success">
+  </form>
+  <br>
+  
+  <div *ngIf="airport!==undefined">
+    
+    
+  code is {{airport.code}}
+  name is {{airport.name}}
+  location is {{airport.location}}
+  
+  
+    
+  </div>
