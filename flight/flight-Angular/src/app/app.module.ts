@@ -9,6 +9,7 @@ import { AddFlightComponent } from './add-flight/add-flight.component';
 import { ModifyFlightComponent } from './modify-flight/modify-flight.component';
 import { ViewAllFlightsComponent } from './view-all-flights/view-all-flights.component';
 import { FlightService } from './service/flightService';
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -32,10 +32,10 @@
     <label>SeatCapacity</label>
     <input type="number" formControlName="seatCapacity" ngModel class="form-control">
 </div>
-<div *ngIf="seatCapacityCtrl.errors !=null &&seatCapacityCtrl.errors.required" class="alert alert-danger">
-    <div [hidden]='!seatCapacityNameCtrl.errors.required'> Seat Capacity is required </div>
-    </div>
-<input type="submit" formControlName="Submit">
+<!-- <div *ngIf="seatCapacityCtrl.errors !=null &&seatCapacityCtrl.errors.required" class="alert alert-danger"> -->
+    <!-- <div [hidden]='!seatCapacityNameCtrl.errors.required'> Seat Capacity is required </div> -->
+    <!-- </div> -->
+<input type="submit" >
 </form>
 <br>
 <div *ngIf="flight!=undefined">
