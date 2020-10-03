@@ -34,11 +34,11 @@ export class FlightService{
        let observable:Observable<Flight[]>=this.http.get<Flight[]>(url);
        return observable;
    }
-
    delete(flightNum:number):Observable<void>{
-       let url="";
-       let observable:Observable<void>=this.http.delete<void>(url);
-       return observable;
-   }
+    let url=this.baseUrl+"/delete/"+flightNum;
+    let observable:Observable<void>=this.http.delete<void>(url);
+    return observable;
+}
+
 
 }
