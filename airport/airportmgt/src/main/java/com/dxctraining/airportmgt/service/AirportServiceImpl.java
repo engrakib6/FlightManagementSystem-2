@@ -1,6 +1,7 @@
 package com.dxctraining.airportmgt.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dxctraining.airportmgt.dao.IAirportDao;
 import com.dxctraining.airportmgt.entities.Airport;
 import com.dxctraining.airportmgt.exceptions.InvalidAirportCodeException;
+import com.dxctraining.airportmgt.exceptions.AirportNotFoundException;
 import com.dxctraining.airportmgt.exceptions.AirportNullException;
 
 @Transactional
@@ -22,9 +24,15 @@ public class AirportServiceImpl implements IAirportService {
 	@Override
 	public Airport findByCode(String code) {
 		validateCode(code);
-		Airport airport = dao.findByCode(code);
+		Optional<Airport> optional = dao.findById(code);
+		if (!optional.isPresent()) {
+			throw new AirportNotFoundException("Airport not found");
+
+		}
+		Airport airport = optional.get();
 		return airport;
 	}
+	
 
 	private void validateCode(String code) {
 		if (code == null) {
@@ -40,7 +48,7 @@ public class AirportServiceImpl implements IAirportService {
 		String sub = locationSubstring(airport);
 		String generate = sub.concat(id);
 		airport.setCode(generate);
-		dao.addAirport(airport);
+		airport=dao.save(airport);
 		return airport;
 	}
 
@@ -65,13 +73,13 @@ public class AirportServiceImpl implements IAirportService {
 	@Override
 	public void removeAirport(String code) {
 		validateCode(code);
-		dao.removeAirport(code);
+		dao.existsById(code);
 
 	}
 
 	@Override
 	public List<Airport> listAll() {
-		List<Airport> listAll = dao.listAll();
+		List<Airport> listAll = dao.findAll();
 		return listAll;
 	}
 

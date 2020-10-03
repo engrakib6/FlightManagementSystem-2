@@ -2,6 +2,8 @@ package com.dxctraining;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +18,7 @@ import org.springframework.web.filter.CorsFilter;
  *                        dont have to provide on our own 3) @AutoConfiguration
  *                        so we dont have to provide on our own
  */
+@EnableDiscoveryClient
 @SpringBootApplication
 public class ProjectApplication {
 
@@ -39,7 +42,7 @@ public class ProjectApplication {
 		src.registerCorsConfiguration("/**", configuration);
 		return new CorsFilter(src);
 	}
-
+    @LoadBalanced
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();

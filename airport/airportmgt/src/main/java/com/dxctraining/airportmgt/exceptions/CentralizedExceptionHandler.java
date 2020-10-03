@@ -21,5 +21,11 @@ public class CentralizedExceptionHandler {
 		String msg = e.getMessage();
 		return msg;
 	}
-
+    
+	@ExceptionHandler(AirportNotFoundException.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public String handleAirportNotFound(AirportNotFoundException e) {
+		String msg = e.getMessage();
+		return msg;
+	}
 }
