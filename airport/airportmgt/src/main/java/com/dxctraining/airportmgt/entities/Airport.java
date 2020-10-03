@@ -6,28 +6,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * 
+ * @author rpalaparthi
+ *
+ **/
 
 @Entity
 public class Airport {
-	
+
 	@Id
 	private String code;
 	private String name;
 	private String location;
-	
-	public Airport(String code,String name, String location) {
-	    this.code=code;
+
+	public Airport(String code, String name, String location) {
+		this.code = code;
 		this.name = name;
 		this.location = location;
 	}
+
 	public Airport(String name, String location) {
-		
+
 		this.name = name;
 		this.location = location;
 	}
-	public Airport() 
-	{
-		
+
+	public Airport() {
+
 	}
 
 	public String getCode() {
@@ -45,7 +51,7 @@ public class Airport {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getLocation() {
 		return location;
 	}
@@ -53,20 +59,21 @@ public class Airport {
 	public void setPassword(String location) {
 		this.location = location;
 	}
-	
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Airport airport = (Airport) o;
-        return Objects.equals(code, airport.code);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(code);
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Airport airport = (Airport) o;
+		return Objects.equals(code, airport.code);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(code);
+	}
 
 }

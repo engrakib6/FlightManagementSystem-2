@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class CentralizedExceptionHandler {
-	
+
 	@ExceptionHandler(AirportNullException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public String handleAirportNull(AirportNullException e) {
 		String msg = e.getMessage();
 		return msg;
 	}
-	
+
 	@ExceptionHandler(InvalidAirportCodeException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public String handleInvalidAirportCode(InvalidAirportCodeException e) {

@@ -23,12 +23,6 @@ export class AirportService{
         let observable:Observable<Airport>=this.http.get<Airport>(url);
         return observable;
     }
-    
-    updateAirport(airport:Airport):Observable<Airport>{
-        let url=this.baseUrl+"/update";   
-        let observable:Observable<Airport>=this.http.post<Airport>(url,airport);
-        return observable;
-       }
        
    removeAirport(code:string):Observable<void>{
        let url=this.baseUrl+"/delete/"+code;
