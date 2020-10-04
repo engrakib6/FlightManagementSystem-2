@@ -1,5 +1,4 @@
 package com.dxctraining.sm.utility;
-
 import com.dxctraining.sm.dto.AirportDetails;
 import com.dxctraining.sm.dto.ScheduleDto;
 import com.dxctraining.sm.entities.Schedule;
@@ -18,6 +17,7 @@ public class ScheduleUtility {
        scheduleDto.setArrivalTime(arrT);
        LocalDateTime dT=schedule.getDepartureTime();
        long dpT=toMillis(dT);
+       System.out.println(arrT+"  "+dpT);
        scheduleDto.setDepartureTime(dpT);
        scheduleDto.setAirportCode(schedule.getAirportCode());
        scheduleDto.setAirportLocation(airportDetails.getLocation());

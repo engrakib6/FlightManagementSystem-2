@@ -1,10 +1,14 @@
 package com.dxctraining.sm.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.TimeZone;
 
 @Entity
 public class Schedule {
@@ -14,7 +18,9 @@ public class Schedule {
     private Integer scheduleId;
     private String fromAirport;
     private String toAirport;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone =JsonFormat.DEFAULT_TIMEZONE, locale =JsonFormat.DEFAULT_LOCALE)
     private LocalDateTime arrivalTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone =JsonFormat.DEFAULT_TIMEZONE, locale =JsonFormat.DEFAULT_LOCALE)
     private LocalDateTime departureTime;
     private String airportCode;
 

@@ -1,11 +1,15 @@
 package com.dxctraining.sm.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class CreateSchedule {
 
     private String airportCode;
     private String toAirport;
     private String fromAirport;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone =JsonFormat.DEFAULT_TIMEZONE, locale =JsonFormat.DEFAULT_LOCALE)
     private long arrivalTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone =JsonFormat.DEFAULT_TIMEZONE, locale =JsonFormat.DEFAULT_LOCALE)
     private long departureTime;
 
     public String getAirportCode() {

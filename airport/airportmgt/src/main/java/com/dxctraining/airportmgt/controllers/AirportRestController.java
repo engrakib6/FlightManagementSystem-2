@@ -53,7 +53,7 @@ public class AirportRestController {
 
 	@GetMapping("/get/{code}")
 	@ResponseStatus(HttpStatus.OK)
-	public AirportDetails getAirport(@NotBlank @Size(min = 6) @PathVariable("code") String code) {
+	public AirportDetails getAirport(@NotBlank  @PathVariable("code") String code) {
 		Airport s1 = service.findByCode(code);
 		AirportDetails response = airportUtil.airportDto(s1);
 		return response;
@@ -61,7 +61,7 @@ public class AirportRestController {
 
 	@DeleteMapping("/delete/{code}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	public void deleteAirport(@NotBlank @Size(min = 6) @PathVariable("code") String code) {
+	public void deleteAirport(@NotBlank @PathVariable("code") String code) {
 		service.removeAirport(code);
 
 	}

@@ -1,7 +1,5 @@
 package com.dxctraining.sm.utility;
-
 import org.springframework.stereotype.Component;
-
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
