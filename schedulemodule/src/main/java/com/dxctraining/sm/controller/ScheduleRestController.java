@@ -46,7 +46,7 @@ public class ScheduleRestController {
     }
 
     private AirportDetails findAirportById(String airportCode) {
-        String airporturl="http://airportapp/airports/get"+airportCode;
+        String airporturl="http://localhost:8585/airports/get/"+airportCode;
         AirportDetails details=restTemplate.getForObject(airporturl,AirportDetails.class);
         return details;
     }
