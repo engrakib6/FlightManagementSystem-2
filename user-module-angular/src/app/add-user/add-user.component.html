@@ -1,0 +1,70 @@
+<form #form=ngForm (ngSubmit)="form.valid && addUser(form)">
+
+  <div class="form-group">
+      <label>User Type:</label>
+      <input type="text" name="userType" required minlength="3" placeholder="enter user type" ngModel
+          #userTypeCtrl=ngModel class="form-control">
+  </div>
+  <div *ngIf="userTypeCtrl.errors!==null &&  userTypeCtrl.errors.required" class="error">
+      required fields
+  </div>
+  <div *ngIf="userTypeCtrl.errors!=null && userTypeCtrl.errors.minlength" class="error">
+      minlength is 3
+  </div>
+
+<div class="form-group">
+  <label>User Name</label>
+  <input type="text" name="userName" required minlength="2" placeholder="enter name here" ngModel
+              #userNameCtrl=ngModel class="form-control">
+  </div>
+
+<div *ngIf="userNameCtrl.errors!==null &&  userNameCtrl.errors.required" class="error">
+        name required
+</div>
+<div *ngIf="userNameCtrl.errors!==null && userNameCtrl.errors.minlength" class="error">
+          minlength is 2
+</div>
+
+
+<div class="form-group">
+  <label>Email</label>
+  <input type="email" name="email" placeholder="enter email" ngModel #emailCtrl=ngModel
+        class="form-control">
+</div>
+<div *ngIf="emailCtrl.errors!==null &&  emailCtrl.errors.required" class="error">enter email </div> 
+
+<div class="form-group">
+  <label> password</label>
+  <input type="password" name="password"  placeholder="enter password" ngModel #passwordCtrl=ngModel
+          class="form-control">
+</div>
+<div *ngIf="passwordCtrl.errors!=null &&  passwordCtrl.errors.required" class="error">
+      password required
+</div>
+
+<div *ngIf="passwordCtrl.errors!=null && passwordCtrl.errors.minlength" class="error">
+      minlength is 6
+</div> 
+
+<div class="form-group">
+    <label>Phone Number:</label>
+    <input type="number" name="phoneNumber"  placeholder="enter phone Number" ngModel #phoneNumberCtrl=ngModel
+          class="form-control">
+</div>
+  <div *ngIf="phoneNumberCtrl.errors!==null &&  phoneNumberCtrl.errors.required" class="error">
+     phone number is required
+  </div>
+  <div *ngIf="phoneNumberCtrl.errors!=null && phoneNumberCtrl.errors.minlength" class="error">
+      minlength is 10
+  </div>
+
+  <input type="submit" value="Submit" class="btn btn-primary">
+</form>
+<br>
+
+<div *ngIf="user!==undefined" class="alert alert-success">
+  <strong>Add Successfully!</strong>
+</div>
+
+
+

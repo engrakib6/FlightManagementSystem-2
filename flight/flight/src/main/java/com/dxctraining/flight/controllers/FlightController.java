@@ -42,18 +42,15 @@ public class FlightController {
 		FlightDto response = util.flightDto(flight);
 		return response;
 	}
-	@GetMapping
-    public List<FlightDto> fetchAll() {
-        List<Flight> list = service.viewAllFlights();
-        List<FlightDto>response=new ArrayList<>();
-        for (Flight flight:list){
-            FlightDto dto= util.flightDto(flight);
-            response.add(dto);
-        }
-        return response;
+	
+	@GetMapping(value = "/list")
+	@ResponseStatus(HttpStatus.OK)
+    public List<Flight> viewAllFlights(){
+		List<Flight> list = service.viewAllFlights();
+        return list;
     }
-
-		@PutMapping("/modify")
+	
+	@PutMapping("/modify")
 	public FlightDto modify(@RequestBody CreateFlightRequest requestData) {
 			Flight flight = new Flight();
 			flight.setFlightModel(requestData.getFlightModel());

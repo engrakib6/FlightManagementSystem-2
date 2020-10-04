@@ -1,0 +1,28 @@
+<div class="container">
+  <table class="table table-striped">
+      <thead>
+      <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Remove Airport</th>
+         
+      </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let airport of airports">
+              <td> {{airport.code}} </td>
+              <td> {{airport.name}} </td>
+              <td> {{airport.location}} </td>         
+              <td>
+                  <button class= "btn btn-success" (click)="removeAirport(airport.code)">Remove</button>
+              </td>
+              
+          </tr>
+      </tbody>
+  </table>
+ 
+</div>
+
+
+

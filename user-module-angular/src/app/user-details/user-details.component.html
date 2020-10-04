@@ -1,0 +1,32 @@
+<form #idform=ngForm (ngSubmit)=findUserById(idform) >
+    <div id="box" class="d-flex justify-content-center h-100">
+    <div  class="searchbar">
+    <label>Enter User Id :</label>&nbsp;
+    <input type="number" class="search_input" name="userId" placeholder="Search..." ngModel>
+    <input type="submit" value="Search">
+    </div>
+    </div>
+</form>
+    <table class="table table-info table-bordered table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User Type</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">phoneNo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table table-light" *ngIf="user!==undefined">
+            <td>{{user.userId}}</td>
+            <td>{{user.userType}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phoneNumber}}</td>
+          </tr>
+        </tbody>
+      </table>
+ 
+
+ 

@@ -1,0 +1,34 @@
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Flight NUMBER</th>
+            <th>Flight Model</th>
+            <th>Carrier Name</th>
+            <th>Seat Capacity</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let flight of flights">
+                <td> {{flight.flightNum}} </td>
+                <td> {{flight.flightModel}} </td>
+                <td> {{flight.carrierName}} </td>
+                <td>{{flight.seatCapacity}}</td>              
+                <td>
+                    <button (click)="delete(flight.flightNum)">Delete</button>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+   
+</div>
+
+
+
+
+
+
+
+
