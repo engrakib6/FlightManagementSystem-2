@@ -1,14 +1,9 @@
 package com.dxctraining.sm.entities;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
-import java.util.Locale;
 import java.util.Objects;
-import java.util.TimeZone;
 
 @Entity
 public class Schedule {
@@ -16,17 +11,15 @@ public class Schedule {
     @Id
     @GeneratedValue
     private Integer scheduleId;
-    private String fromAirport;
-    private String toAirport;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone =JsonFormat.DEFAULT_TIMEZONE, locale =JsonFormat.DEFAULT_LOCALE)
+    private String sourceAirport;
+    private String destinationAirport;
     private LocalDateTime arrivalTime;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone =JsonFormat.DEFAULT_TIMEZONE, locale =JsonFormat.DEFAULT_LOCALE)
     private LocalDateTime departureTime;
     private String airportCode;
 
-    public Schedule(String fromAirport, String toAirport, LocalDateTime arrivalTime, LocalDateTime departureTime, String airportCode) {
-        this.fromAirport = fromAirport;
-        this.toAirport = toAirport;
+    public Schedule(String sourceAirport, String destinationAirport, LocalDateTime arrivalTime, LocalDateTime departureTime, String airportCode) {
+        this.sourceAirport = sourceAirport;
+        this.destinationAirport = destinationAirport;
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;
         this.airportCode = airportCode;
@@ -43,20 +36,20 @@ public class Schedule {
         this.scheduleId = scheduleId;
     }
 
-    public String getFromAirport() {
-        return fromAirport;
+    public String getSourceAirport() {
+        return sourceAirport;
     }
 
-    public void setFromAirport(String fromAirport) {
-        this.fromAirport = fromAirport;
+    public void setSourceAirport(String sourceAirport) {
+        this.sourceAirport = sourceAirport;
     }
 
-    public String getToAirport() {
-        return toAirport;
+    public String getDestinationAirport() {
+        return destinationAirport;
     }
 
-    public void setToAirport(String toAirport) {
-        this.toAirport = toAirport;
+    public void setDestinationAirport(String destinationAirport) {
+        this.destinationAirport = destinationAirport;
     }
 
     public LocalDateTime getArrivalTime() {

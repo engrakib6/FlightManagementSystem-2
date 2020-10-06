@@ -1,7 +1,6 @@
 package com.dxctraining.fms.dto;
 
 public class ScheduleDto {
-
     private Integer scheduleId;
 
     private long arrivalTime;

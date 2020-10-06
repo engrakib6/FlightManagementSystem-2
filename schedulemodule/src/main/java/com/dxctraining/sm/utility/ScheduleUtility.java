@@ -22,8 +22,8 @@ public class ScheduleUtility {
        scheduleDto.setAirportCode(schedule.getAirportCode());
        scheduleDto.setAirportLocation(airportDetails.getLocation());
        scheduleDto.setAirportName(airportDetails.getName());
-       scheduleDto.setFromAirport(schedule.getFromAirport());
-       scheduleDto.setToAirport(schedule.getToAirport());
+       scheduleDto.getSourceAirport(schedule.getDestinationAirport());
+       scheduleDto.getDestinationAirport(schedule.getDestinationAirport());
         return scheduleDto;
     }
     long toMillis(LocalDateTime arrivalTime){

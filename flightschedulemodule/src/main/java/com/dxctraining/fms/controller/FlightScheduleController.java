@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/flightschedules")
 public class FlightScheduleController {
     @Autowired
     private IFlightScheduleService flightScheduleService;
@@ -26,6 +27,7 @@ public class FlightScheduleController {
 
     @PostMapping("/add")
     public FlightScheduleDto saveFlightSchedule(@RequestBody CreateFlightSchedule create) {
+        System.out.println(create.getFlightNum());
         FlightSchedule flightSchedule = new FlightSchedule(
                 create.getAvailableSeats(), create.getScheduleId(), create.getFlightNum());
         flightSchedule = flightScheduleService.addFlightSchedule(flightSchedule);
@@ -36,13 +38,13 @@ public class FlightScheduleController {
     }
 
     private FlightDto findByFlightNum(BigInteger flightNum) {
-        String flighturl = "http://flightapp/flights/get" + flightNum;
+        String flighturl = "http://localhost:8080/flights/get/" + flightNum;
         FlightDto response = restTemplate.getForObject(flighturl, FlightDto.class);
         return response;
     }
 
     private ScheduleDto findById(Integer scheduleId) {
-        String scheduleurl = "http://scheduleapp/schedules/get" + scheduleId;
+        String scheduleurl = "http://localhost:8085/schedules/get/" + scheduleId;
         ScheduleDto res = restTemplate.getForObject(scheduleurl, ScheduleDto.class);
         return res;
     }
@@ -62,7 +64,7 @@ public class FlightScheduleController {
            }
            return result;
     }
-    @GetMapping("/get/id")
+    @GetMapping("/get/{id}")
     public FlightScheduleDto getById(@PathVariable("id") BigInteger id)
     {
         FlightSchedule flightSchedule=flightScheduleService.findByScheduleId(id);

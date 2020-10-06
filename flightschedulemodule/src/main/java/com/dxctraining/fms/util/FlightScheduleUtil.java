@@ -22,8 +22,8 @@ public class FlightScheduleUtil {
         convDto.setSeatsCapacity(flightDto.getSeatCapacity());
         convDto.setFlightNum(flightDto.getFlightNum());
         convDto.setFlightModel(flightDto.getFlightModel());
-        convDto.setFromAirport(scheduleDto.getSourceAirport());
-        convDto.setToAirport(scheduleDto.getDestinationAirport());
+        convDto.setSourceAirport(scheduleDto.getSourceAirport());
+        convDto.setDestinationAirport(scheduleDto.getDestinationAirport());
         return convDto;
     }
 }

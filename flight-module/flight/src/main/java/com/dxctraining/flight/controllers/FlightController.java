@@ -38,6 +38,7 @@ public class FlightController {
 	@GetMapping("/get/{flightNum}")
 	@ResponseStatus(HttpStatus.OK)
 	public FlightDto viewBy(@PathVariable("flightNum") BigInteger flightNum) {
+		System.out.println(flightNum);
 		Flight flight = service.viewByFlightNum(flightNum);
 		FlightDto response = util.flightDto(flight);
 		return response;

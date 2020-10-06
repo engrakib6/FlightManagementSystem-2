@@ -4,8 +4,8 @@ import java.math.BigInteger;
 
 public class FlightScheduleDto {
 
-    private String fromAirport;
-    private String toAirport;
+    private String sourceAirport;
+    private String destinationAirport;
     private String carrierName;
     private Integer seatsCapacity;
     private long arrivalTime;
@@ -16,20 +16,20 @@ public class FlightScheduleDto {
     private BigInteger scheduleFlightId;
     private String flightModel;
 
-    public String getFromAirport() {
-        return fromAirport;
+    public String getSourceAirport() {
+        return sourceAirport;
     }
 
-    public void setFromAirport(String fromAirport) {
-        this.fromAirport = fromAirport;
+    public void setSourceAirport(String sourceAirport) {
+        this.sourceAirport = sourceAirport;
     }
 
-    public String getToAirport() {
-        return toAirport;
+    public String getDestinationAirport() {
+        return destinationAirport;
     }
 
-    public void setToAirport(String toAirport) {
-        this.toAirport = toAirport;
+    public void setDestinationAirport(String destinationAirport) {
+        this.destinationAirport = destinationAirport;
     }
 
     public String getCarrierName() {

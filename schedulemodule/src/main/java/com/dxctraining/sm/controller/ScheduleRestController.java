@@ -33,11 +33,12 @@ public class ScheduleRestController {
         long dT=data.getDepartureTime();
         LocalDateTime dTime=timeUtil.toDateTime(aT);
         LocalDateTime aTime=timeUtil.toDateTime(dT);
+        System.out.println(aT+"    "+dT);
         Schedule schedule=new Schedule();
         schedule.setArrivalTime(aTime);
         schedule.setDepartureTime(dTime);
-        schedule.setFromAirport(data.getFromAirport());
-        schedule.setToAirport(data.getToAirport());
+        schedule.setSourceAirport(data.getSourceAirport());
+        schedule.setDestinationAirport(data.getDestinationAirport());
         schedule.setAirportCode(data.getAirportCode());
         schedule=scheduleService.addSchedule(schedule);
         AirportDetails airportDetails=findAirportById(data.getAirportCode());
@@ -55,6 +56,7 @@ public class ScheduleRestController {
     {
         scheduleService.removeSchedule(id);
     }
+
     @GetMapping
     public List<ScheduleDto> getAllSchedules()
     {
